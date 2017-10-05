@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>dbdeploy-mssql</artifactId>
+    <groupId>com.dbdeploy</groupId>
+    <version>1.0-SNAPSHOT</version>
+    <name>dbdeploy Maven ms sql example</name>
+    <description>Tests Dbdeploy Plugin</description>
+    <dependencies>
+        <dependency>
+            <groupId>com.dbdeploy</groupId>
+            <artifactId>dbdeploy-core</artifactId>
+            <version>3.0M3</version>
+        </dependency>
+         <dependency>
+                <groupId>com.microsoft.sqlserver</groupId>
+                <artifactId>mssql-jdbc</artifactId>
+                <version>6.2.2.jre8</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.dbdeploy</groupId>
+                <artifactId>maven-dbdeploy-plugin</artifactId>
+                <version>3.0M3</version>
+
+                <configuration>
+                    <scriptdirectory>.</scriptdirectory>
+                    <driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+                    <url>jdbc:sqlserver://flywaydb.ck1zuoqmhhyf.ap-southeast-1.rds.amazonaws.com:1433;databaseName=dbdeploydb</url>
+                    <userid>flywaydb</userid>
+                    <password>flywaydb</password>
+                    <delimiterType>row</delimiterType>
+                    <outputfile>${project.version}_apply.sql</outputfile>
+                    <undoOutputfile>${project.version}_undo.sql</undoOutputfile>
+                </configuration>
+               <dependencies>
+                    <dependency>
+                        <groupId>com.dbdeploy</groupId>
+                        <artifactId>dbdeploy-core</artifactId>
+                        <version>3.0M3</version>
+                    </dependency>
+                <dependency>
+                        <groupId>com.microsoft.sqlserver</groupId>
+                        <artifactId>mssql-jdbc</artifactId>
+                <version>6.3.3.jre8-preview</version>
+        </dependency>
+
+        </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+</project>
