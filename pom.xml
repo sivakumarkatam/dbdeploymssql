@@ -30,8 +30,8 @@
                     <scriptdirectory>.</scriptdirectory>
                     <driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
                     <url>jdbc:sqlserver://flywaydb.ck1zuoqmhhyf.ap-southeast-1.rds.amazonaws.com:1433;databaseName=dbdeploydemo</url>
-                    <userid>flywaydb</userid>
-                    <password>flywaydb</password>
+                    <userid>${databaseuser}</userid>
+                    <password>${databasepassword}</password>
                     <delimiterType>row</delimiterType>
                     <outputfile>${project.version}_apply.sql</outputfile>
                     <undoOutputfile>${project.version}_undo.sql</undoOutputfile>
